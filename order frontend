@@ -1,0 +1,35 @@
+<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="UrunSiparis.aspx.cs" Inherits="UrunSiparis" %>
+<div>
+    <body>
+        <form id="form5" runat="server">
+            <table border="1" style="background-color:#808080;">
+                <thead>
+                    <tr>
+                        <th>Urun Adı</th>
+                        <th>Fiyatı</th>
+                        <th>Stok</th>
+                        <th>Mıktarı Seç</th>
+                        <th>Ekle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="Repturunler" runat="server" OnItemCommand="Repeater1_ItemCommand">
+                     <ItemTemplate>
+                         <tr>
+                             <td><%#Eval("URUNADI") %></td>
+                             <td><%#Eval("FIYATI") %></td>
+                             <td><%#Eval("URUNADETI") %></td>
+                             <td>
+                                 <asp:TextBox ID="txtsec" runat="server" TextMode="Number"></asp:TextBox>
+                             </td>
+                             <td>
+                              <asp:LinkButton ID="LinkButton1" runat="server" CommandName="ekle" CommandArgument='<%#Eval("LOGICALREF") %>'> Sepete Ekle</asp:LinkButton></td>
+                         </tr>
+                     </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+            </table>
+                    
+            </form>
+    </body>
+</div>
